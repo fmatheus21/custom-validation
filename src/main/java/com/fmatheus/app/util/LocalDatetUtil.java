@@ -14,6 +14,8 @@ public class LocalDatetUtil {
 
     private static final String DATE_PT = "dd/MM/yyyy";
 
+    private static final String DATE_US = "yyyy-MM-dd";
+
     private LocalDatetUtil() {
         throw new IllegalStateException("Utility class");
     }
@@ -25,6 +27,11 @@ public class LocalDatetUtil {
     public static String converterToLocalDate(LocalDate localDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PT);
         return formatter.format(localDate);
+    }
+
+    public static LocalDate converterToLocalDateUS(LocalDate localDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_US);
+        return converterStringToLocalDate(formatter.format(localDate));
     }
 
     public static String converterLocalDateTimeToString(LocalDateTime localDateTime) {
